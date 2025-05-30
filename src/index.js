@@ -31,6 +31,10 @@ fastify.register(fastifyStatic, {
 	decorateReply: true,
 });
 
+fastify.get("/", (req, reply) => {
+  return reply.sendFile("index.html", publicPath);
+});
+
 fastify.get("/uv/uv.config.js", (req, res) => {
 	return res.sendFile("uv/uv.config.js", publicPath);
 });
